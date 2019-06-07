@@ -25,6 +25,8 @@ syn match SubSignatureModifiers     /\(::[iwfa]\+\)\?/ contained nextgroup=SubSi
 " TODO: add support for Byte Compare Subsignatures
 " TODO: add support for PCRE Subsignatures
 
+syn match LineComment               /^#.*$/
+
 hi link SignatureName           Function
 hi link TDBKey                  PreProc
 hi link TDBValue                Ignore
@@ -33,5 +35,7 @@ hi link SubExpressionModifier   Comment
 hi link SubSignatureOffset      Operator
 hi link SubSignatureHexBytes    String
 hi link SubSignatureModifiers   Comment
+
+hi link LineComment             Comment
 
 let b:current_syntax = "clamav-ldb"
