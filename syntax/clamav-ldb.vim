@@ -18,7 +18,7 @@ syn match SubExpressionModifier     /\((\|)\|&\||\|[<=>][0-9]\+\(,[0-9]\+\)\?\)/
 
 syn match SubSignature              /;[^;]*/ transparent contains=SubSignatureOffset,SubSignatureHexBytes,SubSignatureModifiers nextgroup=SubSignature
 syn match SubSignatureOffset        /\(*\|\(EOF-\|EP[+-]\|S[0-9]\++\|SE\|SL+\)\?[0-9]\+\(,[0-9]\+\)\?:\(:\)\@!\)\?/ contained nextgroup=SubSignatureHexBytes
-syn match SubSignatureHexBytes      /\(*\|[0-9?A-Fa-f]\{2\}\|{\([0-9]\+-\?\|[0-9]*-[0-9]\+\)}\|([BLW])\)/ contained nextgroup=SubSignatureHexBytes
+syn match SubSignatureHexBytes      /\(*\|[0-9?A-Fa-f]\{2\}\|{\([0-9]\+-\?\|[0-9]*-[0-9]\+\|-\)}\|([BLW])\)/ contained nextgroup=SubSignatureHexBytes
 syn match SubSignatureModifiers     /\(::[iwfa]\+\)\?/ contained nextgroup=SubSignatureOffset
 
 " TODO: add support for Macro Subsignatures
@@ -34,7 +34,7 @@ hi link SubExpressionIndex      Type
 hi link SubExpressionModifier   Comment
 hi link SubSignatureOffset      Operator
 hi link SubSignatureHexBytes    String
-hi link SubSignatureModifiers   Comment
+hi link SubSignatureModifiers   Special
 
 hi link LineComment             Comment
 

@@ -4,12 +4,23 @@ This Vim plugin aims at making ClamAV rules easier to read and write.
 
 It's still work in progress. For now it has the following features:
 
-- [x] Basic syntax highlighting for ClamAV .ldb files
-- [x] Basic syntax highlighting for ClamAV .hdb files
-- [ ] Full syntax highlighting for any ClamAV file
-- [ ] Hex dumping of selected strings (`sigtool --hex-dump`)
-- [ ] Signature decoding with `sigtool --decode-sigs`
-- [ ] Malformed database detection using `clamscan -d`
+- Encoding multiple strings to hex with `:ClamAVEncode`
+- Syntax highlighting for ClamAV .ldb and .hdb files
+- Decoding .ldb signatures with `:ClamAVDecode`
+- Syntax highlighting for `sigtool --decode-sigs` output
+- Show quickfix window using `clamscan --database` on save
 
-Check out or request additional features in the issue tracker.
+Suggested configuration options for `.vimrc`:
+```
+let g:clamav_sigtool_cmd = "sigtool"
+let g:clamav_clamscan_cmd = "clamscan"
+let g:clamav_compile_onwrite = 1
+let g:clamav_max_win_height = 16
+map <leader>vd :ClamAVDecode<CR>
+map <leader>ve :ClamAVEncode<CR>
+```
+
+Check out or request additional features in the issue tracker:
+- [ ] Improve PCRE syntax highlighting for .ldb files
+- [ ] Add full syntax highlighting for any ClamAV file type
 
