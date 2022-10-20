@@ -29,7 +29,7 @@ syn match LineComment               /^#.*$/
 
 hi link SignatureName           Function
 hi link TDBKey                  PreProc
-hi link TDBValue                Ignore
+hi link TDBValue                Identifier
 hi link SubExpressionIndex      Type
 hi link SubExpressionModifier   Comment
 hi link SubSignatureOffset      Operator
