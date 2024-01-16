@@ -1,5 +1,7 @@
 # clamav.vim
 
+Rewritten in Lua but works the same.
+
 This Vim plugin aims at making ClamAV rules easier to read and write.
 
 It's still work in progress. For now it has the following features:
@@ -18,6 +20,15 @@ let g:clamav_compile_onwrite = 1
 let g:clamav_max_win_height = 16
 map <leader>vd :ClamAVDecode<CR>
 map <leader>ve :ClamAVEncode<CR>
+
+-- Lua
+vim.g.clamav_sigtool_cmd = "sigtool"
+vim.g.clamav_clamscan_cmd = "clamscan"
+vim.g.clamav_compile_onwrite = 1
+vim.g.clamav_max_win_height = 16
+
+vim.api.nvim_set_keymap('n', '<leader>vd', ':ClamAVDecode<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>ve', ':ClamAVEncode<CR>', {noremap = true, silent = true})
 ```
 
 Check out or request additional features in the issue tracker:
